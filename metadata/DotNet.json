@@ -440,6 +440,7 @@
       "postfix": "Publish",
       "definiteArgument": "publish",
       "settingsClass": {
+        "baseClass": "DotNetSettings",
         "properties": [
           {
             "name": "Project",
