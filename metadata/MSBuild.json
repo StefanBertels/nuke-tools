@@ -51,14 +51,14 @@
           {
             "name": "TargetPlatform",
             "type": "MSBuildTargetPlatform",
-            "format": "/property:Platform={value}",
+            "format": "/p:Platform={value}",
             "customValue": true,
             "help": "The target platform for which the project is built to run on."
           },
           {
             "name": "Properties",
             "type": "Dictionary<string, object>",
-            "format": "/property:{value}",
+            "format": "/p:{value}",
             "itemFormat": "{key}={value}",
             "disallowedCharacter": ";",
             "help": "<p>Set or override the specified project-level properties, where name is the property name and value is the property value. Specify each property separately, or use a semicolon or comma to separate multiple properties, as the following example shows:</p><p><c>/property:WarningLevel=2;OutDir=bin\\Debug</c></p>",
