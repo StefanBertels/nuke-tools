@@ -11,7 +11,8 @@
     "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-restore#//div[@class='content']",
     "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack#//div[@class='content']",
     "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build#//div[@class='content']",
-    "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish#//div[@class='content']"
+    "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish#//div[@class='content']",
+    "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push#//div[@class='content']"
   ],
   "name": "DotNet",
   "officialUrl": "https://docs.microsoft.com/en-us/dotnet/core/tools/",
@@ -629,6 +630,73 @@
             "type": "string",
             "format": "--version-suffix {value}",
             "help": "Defines the version suffix for an asterisk (<c>*</c>) in the version field of the project file. The format follows NuGet's version guidelines."
+          }
+        ]
+      }
+    },
+    {
+      "help": "Pushes a package to the server and publishes it.",
+      "postfix": "NuGetPush",
+      "definiteArgument": "nuget push",
+      "settingsClass": {
+        "baseClass": "DotNetSettings",
+        "properties": [
+          {
+            "name": "TargetPath",
+            "type": "string",
+            "assertion": "File",
+            "format": "{value}",
+            "help": "Path of the package to push."
+          },
+          {
+            "name": "Source",
+            "type": "string",
+            "format": "--source {value}",
+            "help": "Specifies the server URL. This option is required unless <c>DefaultPushSource</c> config value is set in the NuGet config file."
+          },
+          {
+            "name": "SymbolsSource",
+            "type": "string",
+            "format": "--symbols-source {value}",
+            "help": "Specifies the symbol server URL."
+          },
+          {
+            "name": "Timeout",
+            "type": "int",
+            "format": "--timeout {value}",
+            "help": "Specifies the timeout for pushing to a server in seconds. Defaults to 300 seconds (5 minutes). Specifying 0 (zero seconds) applies the default value."
+          },
+          {
+            "name": "ApiKey",
+            "type": "string",
+            "format": "--api-key {value}",
+            "secret": true,
+            "help": "The API key for the server."
+          },
+          {
+            "name": "SymbolApiKey",
+            "type": "string",
+            "format": "--symbol-api-key {value}",
+            "secret": true,
+            "help": "The API key for the symbol server."
+          },
+          {
+            "name": "DisableBuffering",
+            "type": "bool",
+            "format": "--disable-buffering",
+            "help": "Disables buffering when pushing to an HTTP(S) server to decrease memory usage."
+          },
+          {
+            "name": "NoSymbols",
+            "type": "bool",
+            "format": "--no-symbols",
+            "help": "Doesn't push symbols (even if present)."
+          },
+          {
+            "name": "ForceEnglishOutput",
+            "type": "bool",
+            "format": "--force-english-output",
+            "help": "Forces all logged output in English."
           }
         ]
       }
