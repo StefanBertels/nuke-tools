@@ -63,6 +63,10 @@
             "type": "boolean",
             "description": "Custom process assertion implementation."
           },
+          "redirectOutput": {
+            "type": "boolean",
+            "description": "Sets the default for output redirection."
+          },
           "returnType": {
             "type": "string",
             "description": "Return type of the task."
