@@ -79,6 +79,10 @@
             "type": "string",
             "description": "Argument that will always be printed independently of any set property."
           },
+          "omitCommonProperties": {
+            "type": "boolean",
+            "description": "Skips appending of common task properties."
+          },
           "settingsClass": {
             "type": "object",
             "properties": {
