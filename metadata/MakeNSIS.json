@@ -1,0 +1,122 @@
+{
+  "$schema": "./_schema.json#",
+  "license": [
+    "Copyright Matthias Koch 2017.",
+    "Distributed under the MIT License.",
+    "https://github.com/nuke-build/tools/blob/master/LICENSE"
+  ],
+  "references": [
+    "http://nsis.sourceforge.net/Docs/Chapter3.html#usagereference"
+  ],
+  "name": "MakeNSIS",
+  "officialUrl": "http://nsis.sourceforge.net",
+  "help": "NSIS (Nullsoft Scriptable Install System) compiler. NSIS is a professional open source system to create Windows installers. It is designed to be as small and flexible as possible and is therefore very suitable for internet distribution.",
+  "customExecutable": true,
+  "tasks": [
+    {
+      "settingsClass": {
+        "properties": [
+          {
+            "name": "ScriptFileName",
+            "type": "string",
+            "assertion": "File",
+            "format": "{value}",
+            "createOverload": true,
+            "help": "The filename of the script (.nsi) to compile."
+          },
+          {
+            "name": "Verbosity",
+            "type": "NSISVerbosity",
+            "format": "/V{value}",
+            "help": "Set the verbosity of output accordingly. 0=no output, 1=errors only, 2=warnings and errors, 3=info, warnings, and errors, 4=all output."
+          },
+          {
+            "name": "ProcessPriority",
+            "type": "NSISProcessPriority",
+            "format": "/P{value}",
+            "help": "Set the priority of the compiler process. 0=idle, 1=below normal, 2=normal (default), 3=above normal, 4=high, 5=realtime."
+          },
+          {
+            "name": "LogFileName",
+            "type": "string",
+            "format": "\"/O{value}\"",
+            "help": "Write log to this file instead of console."
+          },
+          {
+            "name": "NoConfig",
+            "type": "bool",
+            "format": "/NOCONFIG",
+            "help": "Disables inclusion of nsisconf.nsh. Without this parameter, installer defaults are set from nsisconf.nsh."
+          },
+          {
+            "name": "WarningsAsErrors",
+            "type": "bool",
+            "format": "/WX",
+            "help": "Treat warnings as errors."
+          },
+          {
+            "name": "DefineSymbol",
+            "type": "List<string>",
+            "format": "\"/D{value}\"",
+            "help": "Add to symbols to the globally defined list (!define)."
+          },
+          {
+            "name": "ExecuteCode",
+            "type": "List<string>",
+            "format": "\"/X{value}\"",
+            "help": "Execute code."
+          }
+        ]
+      }
+    }
+  ],
+  "enumerations": [
+    {
+      "name": "NSISVerbosity",
+      "values": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    {
+      "name": "NSISProcessPriority",
+      "values": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    {
+      "name": "NSISInputCharSet",
+      "values": [
+        "ACP",
+        "OEM",
+        "CP#",
+        "UTF8",
+        "UTF16LE",
+        "UTF16BE"
+      ]
+    },
+    {
+      "name": "NSISOutputCharSet",
+      "values": [
+        "ACP",
+        "OEM",
+        "CP#",
+        "UTF8",
+        "UTF8SIG",
+        "UTF16LE",
+        "UTF16BE",
+        "UTF16LEBOM",
+        "UTF16BEBOM"
+      ]
+    }
+
+  ]
+}
